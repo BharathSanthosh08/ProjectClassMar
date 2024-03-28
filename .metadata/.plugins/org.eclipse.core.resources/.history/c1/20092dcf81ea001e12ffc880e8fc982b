@@ -1,0 +1,245 @@
+package com.assurant;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class 	BaseClass {
+	public static WebDriver driver;
+	public static WebElement element;
+	public static TakesScreenshot takes;
+	public static Actions action;
+	public static JavascriptExecutor exicuter;
+	public static Alert alert;
+// webdriver Methods	
+	public void launching_Browser() {
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		driver = new EdgeDriver(options);
+		driver.get("https://www.facebook.com/");
+		driver.manage().timeouts().implicitlyWait (10, TimeUnit.SECONDS);
+		
+	}
+	public void get_Application(String url) {
+		driver.get(url);
+	}
+	
+	public void navigate_Application(String url) {
+		driver.navigate().to(url);
+	}
+	public void to_Forword_Application() {
+		driver.navigate().forward();
+	}
+	public void to_Backword_Application() {
+		driver.navigate().back();
+	}
+	public void to_Refresh_Application(String url1) {
+		driver.navigate().refresh();
+	}
+	public void to_Maximize() {
+		driver.manage().window().maximize();
+	}
+	public void to_Minimize() {
+		driver.manage().window().minimize();
+	}
+	
+	public void swicth_To_New_Window() {
+		driver.switchTo().newWindow(WindowType.WINDOW);
+	}
+	public void swicth_To_New_Tab() {
+		driver.switchTo().newWindow(WindowType.TAB);
+	}
+	
+	
+	public String retrive_Current_Url() {
+		String currenturl = driver.getCurrentUrl();
+		return currenturl;
+	}
+	public String retrieve_Title() {
+		String title = driver.getTitle();
+		return title;
+	}
+	public String retrieve_Page_Source() {
+		String pageSource = driver.getPageSource();
+		return pageSource;
+	}
+	
+
+	public void browser_Close() {
+		driver.close();
+	}
+	public void browser_quit() {
+		driver.quit();
+	}
+	//WebElement Methods
+	
+	public void button_Click(WebElement element) {
+		element.click();
+	}
+	public void button_Clear(WebElement element) {
+		element.clear();
+	}
+	public void submit(WebElement element) {
+		element.submit();	
+		}
+	public void insert_Text (WebElement element, String value) {
+		element.sendKeys(value);
+	}
+	
+	public String retrieve_Text(WebElement element) {
+		String text = element.getText();
+		return text;
+	}
+	public String retrive_Attribute(WebElement element, String value) {
+		String attribute = element.getAttribute(value);
+		return attribute;
+	}
+	public String retrive_Css_Value (WebElement element, String Value) {
+		String cssValues = element.getCssValue(Value);
+		return cssValues;
+	}
+	public void insertText(String Value, WebElement element) {
+		action.sendKeys(element,Value).build().perform();
+	}
+	public boolean displayed_Cheak (WebElement element) {
+		boolean text = element.isDisplayed();
+		return text;
+	}
+	public boolean enabled_Cheak (WebElement element) {
+		boolean text = element.isEnabled();
+		return text;
+	}
+	public boolean selected_Cheak (WebElement element) {
+		boolean text = element.isSelected();
+		return text;
+	}
+	public void Move_To_Element(WebElement element) {
+		action.moveToElement(element).build().perform();
+	}
+	public void to_Select_Text(WebElement element) {
+		action.doubleClick(element).build().perform();
+	}
+	public void to_Right_Click(WebElement element) {
+		action.contextClick(element).build().perform();
+	}
+	public void select_By_Value (WebElement element, String Value) {
+		Select select = new Select(element);
+		select.selectByValue(Value);
+	}
+	public void select_By_Index (WebElement element, int index) {
+		Select select = new Select(element);
+		select.selectByIndex(index);
+	}
+	public void select_By_VisibleText (WebElement element,String  Value) {
+		Select select = new Select(element);
+		select.selectByVisibleText(Value);
+	}
+	public void deselect_By_Value (WebElement element , String Value) {
+		Select select = new Select(element);
+		select.deselectByValue(Value);
+	}
+	public void deselect_By_Index (WebElement element, int index) {
+		Select select = new Select(element);
+		select.deselectByIndex(index);
+	}
+	public void deselect_By_VisibleText (WebElement element, String Value) {
+		Select select = new Select(element);
+		select.deselectByVisibleText(Value);
+	}
+	public boolean cheak_Is_Multiple (WebElement element) {
+		Select select = new Select(element);
+		boolean multiple = select.isMultiple();
+		return multiple;
+	}
+	public WebElement firstSelected (WebElement ele) {
+		Select select = new Select(ele);
+		WebElement initial = select.getFirstSelectedOption();
+		return initial;
+	}
+	public void to_Get_AllSelected (WebElement element) {
+		Select select = new Select(element);
+		List<WebElement> all = select.getAllSelectedOptions();
+		for(int i=0; i<all.size(); i++) {
+			String selectedoption = all.get(i).getText();
+			System.out.println(selectedoption);
+		}
+	}
+	
+	public void drag_And_Drop (WebElement element, WebElement element1) {
+		action.dragAndDrop(element, element1);
+	}
+	public void click_Action (WebElement element) {
+		action.click(element).build().perform();
+	}
+	public void sendKeys_Action (String Value) {
+		action.sendKeys(Value).build().perform();
+	}
+	public void frame_Value (String Value) {
+		driver.switchTo().frame(Value);
+	}
+	public void frame (WebElement element) {
+		driver.switchTo().frame(element);
+	}
+	public void parent_Frame () {
+		driver.switchTo().parentFrame();
+	}
+	public void first_Frame () {
+		driver.switchTo().defaultContent();
+	}
+		
+	public void scroll_Java_Script (WebElement element) {
+		exicuter.executeScript ("arguments[0].scrollIntoView(true)",element);
+	}
+	public void Value_Java_Script (WebElement element,String value) {
+		exicuter.executeScript ("arguments[0].setAttribute('Value',value)",element);
+	}
+	
+	public void click_Java_Exicuter (WebElement element,int a) {
+		exicuter.executeScript("arguments[0].click()", element);
+	}
+	public void alertAccept() {
+		alert.accept();
+	}
+	public void alertDismiss() {
+		alert.dismiss();
+	}
+	public void sendText (String Value) {
+		alert.sendKeys(Value);
+	}
+	public void screenshot (String bharath) {
+		try {
+		File source = takes.getScreenshotAs(OutputType.FILE);
+		File des = new File ("C:\\Users\\BHARATH V\\eclipse-workspace\\com.assurant\\target\\"+bharath+".png");
+		FileUtils.copyFile(source, des);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

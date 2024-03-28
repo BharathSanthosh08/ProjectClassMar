@@ -1,0 +1,37 @@
+package MechBlock;
+
+import java.util.Scanner;
+
+public  class Child  {
+	
+	public static void main(String[] args) {
+		Scanner bv= new Scanner(System.in);
+
+	
+		String name ="bharath" ;
+		if (mark<20) {
+			if (name=="bharath") {
+			System.out.println("Pass");
+			
+			}
+			else {
+				System.out.println("fail");
+			}
+				}
+				
+		
+
+		else {
+			System.err.println("not matched");
+		}
+			
+
+}			
+				
+				
+				
+				
+	}				
+				
+				
+		

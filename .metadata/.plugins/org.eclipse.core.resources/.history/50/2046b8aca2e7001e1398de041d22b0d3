@@ -1,0 +1,100 @@
+package in.Amazon;
+
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+
+//import org.junit.BeforeClass;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.beust.jcommander.Parameter;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LaptopsAccessories {
+	
+static WebDriver driver;
+	
+static Actions action;
+
+
+@Test(priority = 1,groups = "default")
+public  static void LaunchingBreowser(){
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		driver = new EdgeDriver(options);
+		driver.get("https://www.amazon.in/b/?_encoding=UTF8&node=976392031&ref_=sv_top_elec_mega_2");
+		driver.manage().timeouts().implicitlyWait (10, TimeUnit.SECONDS);
+		action = new Actions (driver);
+	}
+
+
+@Parameters({"myname","mysur"})
+
+@org.testng.annotations.Test(priority = 2,groups = "default")
+public  void MoverOverToAccesseries(String var,String var1){
+	WebElement Accessories = driver.findElement(By.xpath("(//span[@class='nav-a-content'])[3]"));
+	action.moveToElement (Accessories).perform();
+	System.out.println(var+""+var1);
+}
+
+
+@org.testng.annotations.Test(priority = 3,groups = "smoke",retryAnalyzer = retryAnalayzer.class)
+	public  void ValidateOptions(){
+		
+		List<WebElement> listedOptions= driver.findElements (By.xpath("//a[text()='Lenovo']/parent::li/a"));
+		List<String> list = new LinkedList<>();
+		list.add("Lenovo"); list.add("Apple"); list.add("Samsung"); list.add("Micromax");
+		list.add("iBall"); 
+		Assert.assertEquals(list.get(0),"bharath");
+		
+		for (int i = 0; i < listedOptions.size(); i++) {
+		String text = listedOptions.get(i).getText();
+		String expected = list.get(i);
+		
+//		if (text.equals(expected)) {
+//			
+//		System.out.println("Pass");
+//		}
+//		else {
+//		System.out.println("Fail");
+//		}
+		}}
+		
+
+@Test(priority = 4,groups = "smoke")
+public  void ClickSamsung() {
+	
+	WebElement sam = driver.findElement(By.xpath("(//a[text()=\"Samsung\"]/parent::li/a[contains(href,'')])[3]"));
+	sam.click();
+	String title = driver.getTitle();
+	System.out.println(title);
+	}
+@Test(priority = 5,groups = "smoke")
+public  void ValidateProducts(){
+	
+	List<WebElement> listedProducts= driver.findElements (By.xpath("//span[@class=\"a-size-base-plus a-color-base a-text-normal\"]/parent::a/span"));
+	for (int i = 0; i < listedProducts.size(); i++) {
+	String text =listedProducts.get(i).getText();
+	if (text.contains("Samsung")|| text.contains("samsung")){
+		
+	
+	System.out.println("contains"+text);
+	}
+	else {
+	System.out.println("does not contain"+text);
+	}
+	}}}
+	

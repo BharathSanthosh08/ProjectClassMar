@@ -1,0 +1,26 @@
+package amazon;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Facebook {
+	public static void main(String[] args) {
+		//System.setProperty("webdriver.edge.driver", "C:\\Users\\BHARATH V\\eclipse-workspace\\amazon\\target\\driver\\msedgedriver.exe");
+		
+			WebDriverManager.edgedriver().setup();
+		WebDriver driver = new EdgeDriver(); // up casting interface to child
+		
+		
+		String s = ("https://www.amazon.in");
+		
+		driver.get(s);
+		
+		driver.manage().window().maximize();
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,29 @@
+package MechBlock;
+
+public  class Child  {
+	
+	public static void main(String[] args) {
+
+		int age =1234;
+		if (age<18) {
+			System.out.println("minor");
+
+		}
+		
+		else if(age>=18 && age<=60) {
+			System.out.println("Eligeble for vote");
+			
+			
+		}
+		else if (age>60) {
+			System.out.println("senior cetizen");
+		}
+		else {
+			System.out.println("not matched");
+		}
+	}	
+	
+}			
+				
+				
+		

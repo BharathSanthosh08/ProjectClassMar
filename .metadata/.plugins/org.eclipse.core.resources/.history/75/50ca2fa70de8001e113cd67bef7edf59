@@ -1,0 +1,52 @@
+package com.assurant;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Assurant {
+	
+	@Given("Launch The Assurant Application")
+	public void launch_the_assurant_application() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click On The Partner With Us Button")
+	public void click_on_the_partner_with_us_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Verifiy The Product Support & Protection Displayed")
+	public void verifiy_the_product_support_protection_displayed() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click On The Product Support & Protection")
+	public void click_on_the_product_support_protection() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Scroll Down To Products & Services")
+	public void scroll_down_to_products_services() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Click On The Device Protections")
+	public void click_on_the_device_protections() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Validat The Device Protections Meaning")
+	public void validat_the_device_protections_meaning() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	
+}

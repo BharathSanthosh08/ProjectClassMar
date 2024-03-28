@@ -1,0 +1,16 @@
+package MechBlock;
+
+public  class Child  {
+	
+	public final void method() {
+		System.out.println("method33");
+		
+	}
+
+	
+	public static void main(String[] args) {
+//calling method using class name
+
+
+}
+}

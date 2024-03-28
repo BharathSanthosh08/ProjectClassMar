@@ -1,0 +1,13 @@
+package MechBlock;
+
+public class ForLoop {
+	public static void main(String[] args) {
+
+		
+		
+		for (String i="a";i=="a";)
+		
+		System.out.println(i);
+}
+}
+	

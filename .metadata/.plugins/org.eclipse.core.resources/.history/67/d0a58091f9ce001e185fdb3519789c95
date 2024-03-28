@@ -1,0 +1,36 @@
+package MechBlock;
+
+import java.util.Scanner;
+
+public  class Child  {
+	
+	public static void main(String[] args) {
+		
+		
+		Scanner n= new Scanner(System.in);
+n.nextInt();
+		int age =45;
+
+		
+		if (age<18) {
+			System.out.println("minor");
+
+		}
+		
+		else if(age>=18 && age<=60) {
+			System.out.println("Eligeble for vote");
+			
+			
+		}
+		else if (age>60) {
+			System.out.println("senior cetizen");
+		}
+		else {
+			System.err.println("not matched");
+		}
+	}	
+	
+}			
+				
+				
+		

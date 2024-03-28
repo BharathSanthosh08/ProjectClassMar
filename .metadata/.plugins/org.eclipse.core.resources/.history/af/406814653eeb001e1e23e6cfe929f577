@@ -1,0 +1,58 @@
+
+Feature: Assurant
+
+  
+  Background: Cucumber Scenrio
+    Given Launch The Facebook Application "https://www.facebook.com/"
+    When Click On The Create New Account Button
+    
+    @cheak @smoke
+ Scenario Outline:
+ When Click The First Name "<name>"
+ And Click The First Name "<surname>"
+ And Click The Gmail "<gmail>"
+ And Click The New Password "<password>"
+ And Click The Date Month Year  "<date>" "<month>" "<year>"
+ And Click The Gender 
+ And Click The SignUp
+ Then Tacks ScreenShot
+ 
+ Examples:
+ |name|surname|gmail|password|date|month|year|    
+ |bharath||bharathiou@gmail.com|Vbhgh@34|22|Mar|2024|
+#|Santhosh||bharathiou@gmail.com|Vbhgh@34|22|Mar|2024|
+#|sriram||bharathiou@gmail.com|vbhgh@34|22|Mar|2024|
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #When Verifiy The Product Support & Protection Displayed
+    #And Click On The Product Support & Protection
+    #And Scroll Down To Products & Services
+    #Then Click On The Device Protections
+    #And Validat The Device Protections Meaning 
+
+  
+  
+  
+  
+  
+  
+  
+  #Scenario Outline: Title of your scenario outline
+    #Given I want to write a step with <name>
+    #When I check for the <value> in step
+    #Then I verify the <status> in step
+#
+    #Examples: 
+      #| name  | value | status  |
+      #| name1 |     5 | success |
+      #| name2 |     7 | Fail    |

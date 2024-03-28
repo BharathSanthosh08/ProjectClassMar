@@ -1,0 +1,81 @@
+package com.assurant;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
+
+import dev.failsafe.internal.util.Assert;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Assurant {
+	
+	static WebDriver driver;
+	static Actions action;
+	
+	
+	@Given("Launch The Assurant Application")
+	public void launch_the_assurant_application() {
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		driver = new EdgeDriver(options);
+		driver.get("https://www.assurant.in");
+		driver.manage().timeouts().implicitlyWait (10, TimeUnit.SECONDS);
+		action = new Actions (driver);
+
+	    
+	}
+
+	@When("Click On The Partner With Us Button")
+	public void click_on_the_partner_with_us_button() {
+	   WebElement partner = driver.findElement(By.xpath("//button[@id=\"PartnerWithUs\"]"));
+	   	partner.click();
+	}
+
+	@When("Verifiy The Product Support & Protection Displayed")
+	public void verifiy_the_product_support_protection_displayed() {
+	    WebElement displayed = driver.findElement(By.xpath("//a[contains(text(),'vehicle protection services')]"));
+		boolean equals = displayed.equals("vehicle protection services");
+		System.out.println(equals);
+	}
+
+	@When("Click On The Product Support & Protection")
+	public void click_on_the_product_support_protection() {
+		WebElement vechile = driver.findElement(By.xpath("//a[contains(text(),'product')]"));
+	    vechile.click();
+	}
+
+	@When("Scroll Down To Products & Services")
+	public void scroll_down_to_products_services() {
+	WebElement scroll = driver.findElement(By.xpath("//a[text()=\"Our Story\"]"));
+		JavascriptExecutor  js =(JavascriptExecutor)driver;
+		js.executeAsyncScript("argument[0].scrollIntoView(true)", scroll);
+	    
+	}
+
+	@Then("Click On The Device Protections")
+	public void click_on_the_device_protections() {
+		WebElement device = driver.findElement(By.xpath("//strong[text()='Device Protections']"));
+	    
+		device.click();
+	}
+
+	@Then("Validat The Device Protections Meaning")
+	public void validat_the_device_protections_meaning() {
+	WebElement validate = driver.findElement(By.xpath("//h1[contains(text(),'Device protection means')]"));
+	String text = validate.getText();
+	System.out.println(text);
+	org.junit.Assert.assertEquals(text, "Device protection means lifestyle protection for your customers.");
+	}
+
+	
+}

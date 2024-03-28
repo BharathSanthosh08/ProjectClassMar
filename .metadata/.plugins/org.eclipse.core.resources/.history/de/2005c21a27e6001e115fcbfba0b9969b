@@ -1,0 +1,91 @@
+package in.amazon;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LaptopsAccessories {
+	
+	static WebDriver driver;
+	
+static Actions action;
+
+@Before
+public void method1() {
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		driver = new EdgeDriver(options);
+		driver.get("https://www.amazon.in/b/?_encoding=UTF8&node=976392031&ref_=sv_top_elec_mega_2");
+		driver.manage().timeouts().implicitlyWait (10, TimeUnit.SECONDS);
+		action = new Actions (driver);
+	}
+@Test
+public  void method2() {
+	WebElement Accessories = driver.findElement(By.xpath("(//span[@class='nav-a-content'])[3]"));
+	action.moveToElement (Accessories).perform();
+
+}
+@Test
+	public  void 	method3() {
+		
+		List<WebElement> listedOptions= driver.findElements (By.xpath("//a[text()='Lenovo']/parent::li/a"));
+		List<String> list = new ArrayList<>();
+		list.add("Lenovo"); list.add("Apple"); list.add("Samsung"); list.add("Micromax");
+		list.add("iBall"); 
+		if(list.size()==listedOptions.size()) {
+		for (int i = 0; i < listedOptions.size(); i++) {
+		String text = listedOptions.get(i).getText();
+		String expected = list.get(i);
+		if (text.equals (expected)) {
+			
+		System.out.println("Pass");
+		}
+		else {
+		System.out.println("Fail");
+		}
+		}}
+		}	
+@Test
+public  void method4() {
+	
+	WebElement samsung = driver.findElement(By.xpath("(//a[text()='Samsung'])[3]"));
+	action.moveToElement (samsung).perform();
+}
+@Test
+public  void method5()  {
+	
+	WebElement sam = driver.findElement(By.xpath("(//a[text()='Samsung'])[3]"));
+	sam.click();
+	String title = driver.getTitle();
+	System.out.println(title);
+	}
+@Test
+public  void 	method6()  {
+	
+	List<WebElement> listedProducts= driver.findElements (By.xpath("//span[@class=\"a-size-base-plus a-color-base a-text-normal\"]/parent::a/span"));
+	for (int i = 0; i < listedProducts.size(); i++) {
+	String text = listedProducts.get(i).getText();
+	if (text.contains("Samsung")|| text.contains("samsung")){
+		
+	
+	System.out.println("contains"+text);
+	}
+	else {
+	System.out.println("does not contain"+text);
+	}
+	}}
+	
+
+}

@@ -1,0 +1,13 @@
+package com.assurant;
+
+import io.cucumber.java.Scenario;
+
+public class Hooks {
+	
+	
+	BaseClass cls = new BaseClass();
+	
+	@Before
+	public void methodForLaunchBrowser(Scenario scenario) {
+
+}

@@ -1,0 +1,14 @@
+package FIirstFloor;
+
+import java.io.File;
+
+public class file1 {
+	public static void main(String[] args) {
+		File f = new File("C:\\Users\\BHARATH V\\eclipse-workspace\\bharath\\src\\FIirstFloor\\SAMPLE\\a\\b\\c");
+		
+			boolean f1 =	f.mkdirs();
+			System.out.println(f1);
+				
+	}
+
+}

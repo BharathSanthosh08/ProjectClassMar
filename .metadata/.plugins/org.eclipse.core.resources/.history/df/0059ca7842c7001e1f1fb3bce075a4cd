@@ -1,0 +1,20 @@
+package MechBlock;
+
+public class Parent {
+ private void mukesh() {
+	System.out.println("first student");
+	
+}
+ void sriram() {
+	System.out.println("second student");
+}
+
+public static void main(String[] args) {
+	Parent c= new Parent();
+	c.mukesh();
+	c.sriram();
+
+}
+
+
+}

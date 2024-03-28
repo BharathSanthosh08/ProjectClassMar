@@ -1,0 +1,260 @@
+package com.assurant;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class 	Bharath {
+	public static WebDriver driver;
+	public static WebElement element;
+	public static TakesScreenshot takes;
+	public static Actions action;
+	public static JavascriptExecutor exicuter;
+	public static Alert alert;
+// webdriver Methods	
+	public void launching_Browser() {
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		driver = new EdgeDriver(options);
+		driver.get("https://www.facebook.com/");
+		driver.manage().timeouts().implicitlyWait (10, TimeUnit.SECONDS);
+		
+	}
+	public void get_Application(String url) {
+		driver.get(url);
+	}
+	
+	public void navigate_Application(String url) {
+		driver.navigate().to(url);
+	}
+	public void to_Forword_Application() {
+		driver.navigate().forward();
+	}
+	public void to_Backword_Application() {
+		driver.navigate().back();
+	}
+	public void to_Refresh_Application(String url1) {
+		driver.navigate().refresh();
+	}
+	public void to_Maximize() {
+		driver.manage().window().maximize();
+	}
+	public void to_Minimize() {
+		driver.manage().window().minimize();
+	}
+	
+	public void swicth_To_New_Window() {
+		driver.switchTo().newWindow(WindowType.WINDOW);
+	}
+	public void swicth_To_New_Tab() {
+		driver.switchTo().newWindow(WindowType.TAB);
+	}
+	
+	
+	public String retrive_Current_Url() {
+		String currenturl = driver.getCurrentUrl();
+		return currenturl;
+	}
+	public String retrieve_Title() {
+		String title = driver.getTitle();
+		return title;
+	}
+	public String retrieve_Page_Source() {
+		String pageSource = driver.getPageSource();
+		return pageSource;
+	}
+	
+	
+
+	public void handleWindows() {
+		String window = driver.getWindowHandle();
+		Set<String> windows = driver.getWindowHandles();
+		for (String w2 : windows) {
+			if(!w2.equals(window)) {
+				driver.switchTo().window(w2);
+			}
+		}
+	}
+	public void browser_Close() {
+		driver.close();
+	}
+	public void browser_quit() {
+		driver.quit();
+	}
+	//WebElement Methods
+	
+	public void button_Click(WebElement element) {
+		element.click();
+	}
+	public void button_Clear(WebElement element) {
+		element.clear();
+	}
+	public void submit(WebElement element) {
+		element.submit();	
+		}
+	public void insert_Text (WebElement element, String value) {
+		element.sendKeys(value);
+	}
+	
+	public String retrieve_Text(WebElement element) {
+		String text = element.getText();
+		return text;
+	}
+	public void retrive_Attribute (WebElement ele, String value) {
+		String att = ele.getAttribute(value);
+	}
+	public String cssValueMethod (WebElement ele, String cssValue) {
+		String cssValues = ele.getCssValue (cssValue);
+		return cssValue;
+	}
+	public void insertText(String Value, WebElement ele, int a) {
+		action.sendKeys(ele,Value).build().perform();
+	}
+	public boolean displayed (WebElement ele) {
+		boolean text = ele.isDisplayed();
+		return text;
+	}
+	public boolean enabled (WebElement ele) {
+		boolean text = ele.isEnabled();
+		return text;
+	}
+	public boolean selected (WebElement ele) {
+		boolean text = ele.isSelected();
+		return text;
+	}
+	public void act (WebElement ele) {
+		action.moveToElement(ele).build().perform();
+	}
+	public void select (WebElement ele) {
+		action.doubleClick(ele).build().perform();
+	}
+	public void rightClick (WebElement ele) {
+		action.contextClick(ele).build().perform();
+	}
+	public void selectByValue (WebElement ele, String Value) {
+		Select select = new Select(ele);
+		select.selectByValue(Value);
+	}
+	public void selectByIndex (WebElement ele, int index) {
+		Select select = new Select(ele);
+		select.selectByIndex(index);
+	}
+	public void selectByVisibleText (String Value) {
+		Select select = new Select(ele);
+		select.selectByVisibleText(Value);
+	}
+	public void deselectByValue (WebElement ele, String Value) {
+		Select select = new Select(ele);
+		select.deselectByValue(Value);
+	}
+	public void deselectByIndex (WebElement ele, int index) {
+		Select select = new Select(ele);
+		select.deselectByIndex(index);
+	}
+	public void deselectByVisibleText (String Value) {
+		Select select = new Select(ele);
+		select.deselectByVisibleText(Value);
+	}
+	public boolean multiple (WebElement ele) {
+		Select select = new Select(ele);
+		boolean multiple = select.isMultiple();
+		return multiple;
+	}
+	public WebElement firstSelected (WebElement ele) {
+		Select select = new Select(ele);
+		WebElement initial = select.getFirstSelectedOption();
+		return initial;
+	}
+	public void allSelected (WebElement ele) {
+		Select select = new Select(ele);
+		List<WebElement> all = select.getAllSelectedOptions();
+		for(int i=0; i<all.size(); i++) {
+			String selectedopt = all.get(i).getText();
+			System.out.println(selectedopt);
+		}
+	}
+	public void getOptions (WebElement ele) {
+		Select select = new Select (ele);
+		List<WebElement> opt = select.getAllSelectedOptions();
+		for(int i=0; i<opt.size(); i++) {
+			String alloptions = opt.get(i).getText();
+			System.out.println(alloptions);
+		}
+	}
+	
+	public void dragdrop (WebElement ele, WebElement ele1) {
+		action.dragAndDrop(ele, ele1);
+	}
+	public void press (WebElement ele) {
+		action.click(ele).build().perform();
+	}
+	public void sendText (String Value) {
+		action.sendKeys(Value).build().perform();
+	}
+	public void frame (String Value) {
+		driver.switchTo().frame(Value);
+	}
+	public void parentFrame () {
+		driver.switchTo().parentFrame();
+	}
+	public void firstFrame () {
+		driver.switchTo().defaultContent();
+	}
+	public void scrollView (WebElement ele) {
+		script.executeScript ("arguments[0].scrollIntoView(true)",ele);
+	}
+	public void button (WebElement ele,int a) {
+		script.executeScript("arguments[1].click()", ele);
+	}
+	public void alertAccept() {
+		alert.accept();
+	}
+	public void alertDismiss() {
+		alert.dismiss();
+	}
+	public void sendText (String Value, int a) {
+		alert.sendKeys(Value);
+	}
+	public void screenshot (String path) {
+		File source = shot.getScreenshotAs(OutputType.FILE);
+		File des = new File ("C:\\Users\\VAISHNAVI\\eclipse-workspace\\sel\\Ajio\\ target"+path+".png");
+		try {
+			FileUtils.copyFile(source, des);
+		}
+		catch (IOException o) {
+			o.printStackTrace();
+		}
+	}
+	public void button (int a, WebElement ele) {
+		ele.submit();
+	}
+	public void clear (WebElement ele) {
+		ele.clear();
+	}
+	
+}

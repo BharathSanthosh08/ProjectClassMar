@@ -1,0 +1,16 @@
+package FIirstFloor;
+
+import java.io.File;
+
+public class file1 {
+	public static void main(String[] args) {
+		File f = new File("\\Users\\BHARATH V\\eclipse-workspace\\bharath\\src\\SAMPLE\\file.text");
+		
+		boolean f1 = f.createNewFile();
+		System.out.println(f1);
+		
+		
+			}
+	}
+
+}

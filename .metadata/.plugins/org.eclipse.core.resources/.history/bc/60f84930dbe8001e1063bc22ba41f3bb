@@ -1,0 +1,64 @@
+package com.assurant;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Facebook {
+	
+	@Given("Launch The Facebook Application")
+	public void launch_the_facebook_application() {
+	   
+	}
+
+	@When("Click On The Create New Account Button")
+	public void click_on_the_create_new_account_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click The First Name {string}")
+	public void click_the_first_name(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click The Gmail {string}")
+	public void click_the_gmail(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click The New Password {string}")
+	public void click_the_new_password(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click The Date Month Year  {string} {string} {string}")
+	public void click_the_date_month_year(String string, String string2, String string3) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click The Gender")
+	public void click_the_gender() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Click The SignUp")
+	public void click_the_sign_up() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Tacks ScreenShot")
+	public void tacks_screen_shot() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+
+
+}

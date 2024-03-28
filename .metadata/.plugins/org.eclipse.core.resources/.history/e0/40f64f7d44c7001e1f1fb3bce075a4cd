@@ -1,0 +1,16 @@
+package MechBlock;
+
+public class Child extends Parent {
+
+	protected void bharath() {
+		System.out.println("the last child ");
+	}
+	
+	public static void main(String[] args) {
+		Child c= new Child();
+		
+		c.mukesh();
+		c.sriram();
+		c.bharath();
+	}
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="in.Amazon.Transformer"/>
+  </listeners>
+  <test thread-count="5" name="Test1(failed)">
+    <parameter name="myname" value="bharath"/>
+    <parameter name="mysur" value="san"/>
+    <classes>
+      <class name="in.Amazon.LaptopsAccessories">
+        <methods>
+          <include name="ClickSamsung"/>
+          <include name="ValidateOptions"/>
+          <include name="MoverOverToAccesseries" invocation-numbers="0 0"/>
+        </methods>
+      </class> <!-- in.Amazon.LaptopsAccessories -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Suite] -->

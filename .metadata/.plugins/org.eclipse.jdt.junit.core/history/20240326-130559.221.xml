@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRunner (1)" project="Assurant" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.assurant.TestRunner" time="73.933">
+    <testsuite name="Assurant" time="73.933">
+      <testcase name="Facebook signup" classname="Assurant" time="73.933">
+        <error>java.lang.Error: Unresolved compilation problem: 
+	firstname cannot be resolved to a variable
+&#13;
+	at com.assurant.Facebook.click_the_first_name(Facebook.java:45)&#13;
+	at ✽.Click The First Name "bharath"(file:///C:/Users/BHARATH%20V/eclipse-workspace/Assurant/src/test/resources/assurant.feature:11)&#13;
+&#13;
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

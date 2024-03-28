@@ -1,0 +1,29 @@
+
+Feature: 
+
+  
+  Scenario: 
+    Given Launch The Assurant Application
+    And Click On The Partner With Us Button
+    When Validate Listed Industries Options
+    And Click On The Product Support & Protection
+    And Scrool Down To Products & Services
+    Then Click On The Device Protections
+    And Validate The Device Protections Meaning 
+
+  
+  
+  
+  
+  
+  
+  
+  #Scenario Outline: Title of your scenario outline
+    #Given I want to write a step with <name>
+    #When I check for the <value> in step
+    #Then I verify the <status> in step
+#
+    #Examples: 
+      #| name  | value | status  |
+      #| name1 |     5 | success |
+      #| name2 |     7 | Fail    |

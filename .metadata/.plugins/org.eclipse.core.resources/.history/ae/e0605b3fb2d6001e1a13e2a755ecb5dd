@@ -1,0 +1,14 @@
+package FIirstFloor;
+
+import java.io.File;
+
+public class file1 {
+	public static void main(String[] args) {
+		File f = new File("C:\\ProgramData");
+		
+			boolean f1 =	f.isDirectory();
+			System.out.println(f1);
+				
+	}
+
+}

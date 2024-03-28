@@ -1,0 +1,28 @@
+package MechBlock;
+
+public class Parent {
+ public void educationLoan(int id) {
+System.out.println("my roll no "+id);
+}
+
+ 
+ public void educationLoan(String name,int id) {
+	 System.out.println("my name is" +name);
+	 System.out.println("my id no is" +id);
+ }
+public void educationLoan(int id,String name) {
+	System.out.println("my pin is" +id);
+	System.out.println("my sur is" +name);
+	
+}
+ public static void main(String[] args) {
+	 Parent n= new Parent();
+	 
+	 n.educationLoan(123);
+	 n.educationLoan("bharath",53426);
+	 n.educationLoan(5454,"san");
+	
+ }
+
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRunner" project="com.assurant" tests="3" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.assurant.TestRunner" incomplete="true">
+    <testsuite name="Assurant" incomplete="true">
+      <testcase name="#1" classname="Assurant" incomplete="true"/>
+      <testcase name="#2" classname="Assurant" incomplete="true"/>
+      <testcase name="#3" classname="Assurant" incomplete="true"/>
+    </testsuite>
+  </testsuite>
+</testrun>

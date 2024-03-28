@@ -1,0 +1,34 @@
+package MechBlock;
+
+public  class Child  {
+	
+	public static void main(String[] args) {
+
+		int mark =50 ;
+		String name ="bharath" ;
+		if (mark>=60) {
+			if (name=="bharath") {
+			System.out.println("Pass");
+			
+			}
+			else {
+				System.out.println("fail");
+			}
+				}
+				
+		
+
+		else {
+			System.out.println("not matched");
+		}
+			
+
+}			
+				
+				
+				
+				
+	}				
+				
+				
+		

@@ -1,0 +1,57 @@
+package in.amazon;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LaptopsAccessories {
+	
+	static WebDriver driver;
+	
+static Actions action;
+
+@Test
+public void Browserlaunch() {
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		driver = new EdgeDriver(options);
+		driver.get("https://www.amazon.in/");
+		driver.manage().timeouts().implicitlyWait (10, TimeUnit.SECONDS);
+		action = new Actions (driver);
+	}
+public  void MovesOverLapttopAccessories() {
+	WebElement laptops = driver.findElement(By.xpath(""));
+	laptops.click();
+	String title = driver.getTitle();
+	System.out.println(title.equals("Electronics Store: Buy Electronics products Online at Best Prices in India at Amazon.in"));
+	
+
+}
+	public  void 	ValidateListedOptions() {
+
+	}
+	
+	
+
+public  void MovesOverSamsung() {
+
+}
+
+public  void ClickOnSamsung() {
+
+}
+
+
+public  void 	ValidateListedProducts() {
+
+}
+}

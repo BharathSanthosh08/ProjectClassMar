@@ -1,0 +1,150 @@
+package com.assurant;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseClassFB {
+	
+public static WebDriver driver;
+public static WebElement e;
+	
+public void browser_Launch() {
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("start-maximized");
+		driver = new EdgeDriver(options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));  }
+	
+public void application_launch(String url) {
+	
+		driver.get(url);  }
+
+public void application_navigate(String url) {
+	
+        driver.navigate().to(url);  }
+	
+public void application_Close() {
+		
+		driver.close();  }
+	
+public void application_quit() {
+		
+		driver.close();  }
+    
+public String retrive_Title() {
+		
+		String title = driver.getTitle(); 
+		return title ;  }
+
+public String retrive_Pagesource() {
+	
+	String pageSource = driver.getPageSource(); 
+	return pageSource ;  }
+
+public String retrive_CurrentUrl() {
+	
+	String currentUrl = driver.getCurrentUrl(); 
+	return currentUrl ;  }
+
+public void manage_windowHandle() {
+	
+	String windowHandle = driver.getWindowHandle();
+	System.out.println(windowHandle) ;  }
+
+public void manage_windowHandles(int x) {
+	
+    Set<String> windowHandles = driver.getWindowHandles();
+    List<String> handlewindows = new ArrayList<String>(windowHandles);
+    for (int i=0;i<handlewindows.size();i++) {
+    	driver.switchTo().window(handlewindows.get(x));
+    	//System.out.println(handlewindows.get(x));
+    	} }
+
+public void windowHandles1() {
+	
+    String parent =driver.getWindowHandle();
+	Set<String> children = driver.getWindowHandles();
+	for (String child:children) {
+	if(!child.equals(parent)) {
+		driver.switchTo().window(parent); }}}
+	
+//---------------------------------------------------------------------------
+//WeBElement Methods	
+
+public void button_click(WebElement e) {
+		
+		e.click();   }
+	
+public void submit_button(WebElement e) {
+		
+		e.submit();  }
+
+public void sendKeys_method(WebElement e, String value) {
+	
+	e.sendKeys(value);  }
+
+public void clear(WebElement e) {
+	
+	e.clear();  }
+
+public String attribute_method(WebElement e, String atribute ) { //use near xpath attr value
+	
+	String attribute = e.getAttribute(atribute);
+	System.out.println(attribute);
+	return attribute;  }
+
+public String cssValue_method(WebElement e, String cssValue ) {
+	
+	String cssValues = e.getCssValue(cssValue);
+	System.out.println(cssValues);
+	return cssValues;  }
+
+public Point getlocation_method(WebElement e) {
+	
+	Point location = e.getLocation();
+	System.out.println(location);
+	return location;  }
+
+public String retrive_Text(WebElement e) { // use near black text
+	
+	String text = e.getText();
+	System.out.println(text);
+	return text;  }
+
+public boolean enabled (WebElement e) {
+	
+	boolean text = e.isEnabled();
+	System.out.println(text);
+	return text; }
+
+public boolean displayed (WebElement e) {
+	
+	boolean text = e.isDisplayed();
+	System.out.println(text);
+	return text; }
+
+public boolean selected (WebElement e) {
+	
+	boolean text = e.isSelected();
+	System.out.println(text);
+	return text;  }
+
+
+
+
+
+	
+
+
+}
+
+}

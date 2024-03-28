@@ -1,0 +1,21 @@
+package amazon;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Options {
+	public static void main(String[] args)throws Exception  {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\BHARATH V\\eclipse-workspace\\amazon\\target\\driver\\chromedriver.exe");
+		String s = "https://www.redbus.in/";
+		
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("start-maximized");
+		options.addArguments("disable-popups");
+		WebDriver driver = new ChromeDriver(options);
+		driver.get(s);
+
+	
+}}
